@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react"
+import React,{ useEffect, useState, useLayoutEffect } from "react"
 
 const Timer = (props)=>{
  const{counter}=props
@@ -6,8 +6,9 @@ const Timer = (props)=>{
   const [showTime , updatestate]=useState(0)
 useEffect(()=>{
   let interval =  setInterval(()=>{
+    
     updatestate((prevState)=> prevState+1)
-    console.log('created the interval')
+  
     },1000)
     return ()=>{
       console.log(' i was mounted', {interval})
